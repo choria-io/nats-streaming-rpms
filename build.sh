@@ -67,13 +67,13 @@ find /build/dist -maxdepth 1 -type f | xargs -I {} cp -v {} ${WORKDIR}/dist
 cp -v /build/dist/${DIST}/* ${WORKDIR}/dist
 
 for i in $(find ${WORKDIR}/dist -type f); do
-  sed -i "s!{{pkgname}}!${NAME}!" ${i}
-  sed -i "s!{{bindir}}!${BINDIR}!" ${i}
-  sed -i "s!{{etcdir}}!${ETCDIR}!" ${i}
-  sed -i "s!{{version}}!${VERSION}!" ${i}
-  sed -i "s!{{iteration}}!${RELEASE}!" ${i}
-  sed -i "s!{{dist}}!${DIST}!" ${i}
-  sed -i "s!{{manage_conf}}!${MANAGE_CONF}!" ${i}
+  sed -i "s!{{pkgname}}!${NAME}!g" ${i}
+  sed -i "s!{{bindir}}!${BINDIR}!g" ${i}
+  sed -i "s!{{etcdir}}!${ETCDIR}!g" ${i}
+  sed -i "s!{{version}}!${VERSION}!g" ${i}
+  sed -i "s!{{iteration}}!${RELEASE}!g" ${i}
+  sed -i "s!{{dist}}!${DIST}!g" ${i}
+  sed -i "s!{{manage_conf}}!${MANAGE_CONF}!g" ${i}
 done
 
 unzip ${ZIPFILE}

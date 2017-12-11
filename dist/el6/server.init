@@ -26,7 +26,7 @@ conffile="/etc/nats-streaming/${prog}.conf"
 # pull in sysconfig settings
 [ -e /etc/sysconfig/${prog} ] && . /etc/sysconfig/${prog}
 
-args="--config=${conffile} --pid=${pidfile} ${EXTRA_OPTS}"
+args="--config=${conffile} --pid=${pidfile} ${EXTRA_OPTS} -l /var/log/{{pkgname}}.log -T"
 
 export GOMAXPROCS=${GOMAXPROCS:-2}
 
