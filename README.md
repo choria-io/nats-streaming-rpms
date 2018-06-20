@@ -3,13 +3,16 @@
 These RPMs are hosted in the Choria RPM Repository, add it to your EL6 or 7 system like this:
 
 ```ini
-[choria]
-name=Choria Orchestrator - $architecture
-baseurl=https://dl.bintray.com/choria/el-yum/el$releasever/$basearch
-gpgcheck=0
-repo_gpgcheck=0
-enabled=1
-protect=1
+[choria_release]
+name=Choria Orchestrator Releases
+baseurl=https://packagecloud.io/choria/release/el/$releasever/$basearch
+enabled=True
+gpgcheck=False
+repo_gpgcheck=True
+gpgkey=https://packagecloud.io/choria/release/gpgkey
+metadata_expire=300
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+sslverify=True
 ```
 
 And then you can install `nats-streaming-server` using `yum`.

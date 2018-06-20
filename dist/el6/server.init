@@ -28,8 +28,6 @@ conffile="/etc/nats-streaming/${prog}.conf"
 
 args="--config=${conffile} --pid=${pidfile} ${EXTRA_OPTS} -l /var/log/{{pkgname}}.log -T"
 
-export GOMAXPROCS=${GOMAXPROCS:-2}
-
 start() {
     [ -x $exec ] || exit 5
 
